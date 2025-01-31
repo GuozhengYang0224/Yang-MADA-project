@@ -1,5 +1,5 @@
 ---
-title: "Example Manuscript Template for a Data Analysis Project"
+title: "Sex-Based Differences in Tuberculosis Immune Response: The Role of Leptin"
 author: ""
 format:
   docx:
@@ -28,9 +28,17 @@ $*$ Corresponding author: guozheng0224\@uga.edu
 
 {{< pagebreak >}}
 
-# Part 1
+# Abstract
 
-# Summary/Abstract
+## Background:
+
+## Methods: 
+
+## Results: 
+
+## Conclusions: 
+
+# Keywords: 
 
 *Write a summary of your project.*
 
@@ -40,29 +48,33 @@ $*$ Corresponding author: guozheng0224\@uga.edu
 
 ## General Background Information
 
-*Provide enough background on your topic that others can understand the why and how of your analysis*
+As a global threat, tuberculosis (TB) caused 10.8 million new cases in 2023 with Africa contributing 24% of these cases [@WHO2024]. Countries with high annual incidence rates are mostly in Africa, where TB incidence is significantly higher than in other regions. TB prevention and control strategies have shown progress in recent years. However, further efforts are needed to eliminate TB infection and transmission.
 
-## Description of data and data source
+Males are more likely to develop TB disease than females, a difference that cannot be fully explained by socioeconomic status or access to healthcare [@Horton2016; @Ledesma2022]. Research has shown that this sexual bias is linked to differences in immune systems, influenced by chromosome-encoded genes and hormones [@Gupta2022]. Previous studies indicate that body fat mass could also affect immune responses [@Womack2007; @Ilavska2012]. Since women generally have higher body fat storage, their immune systems may receive sufficient energy to support a stronger response to infections compared to men. In diseases like TB that often cause body wasting [@Mupere2014], differences in energy reserves may contribute to variations in immune response between men and women.
 
-*Describe what the data is, what it contains, where it is from, etc. Eventually this might be part of a methods section.*
+Leptin, a key link between metabolism and the immune system, plays an important role in activating and regulating immune responses [@Naylor2016; @Francisco2018]. It functions as an energy indicator, signaling whether the body has enough energy to activate and sustain immune responses [@Lord2002; @Cava2004]. For individuals with similar body fat mass, females generally have higher serum leptin levels than males [@Hickey1996]. However, leptin levels may be lower in tuberculosis patients [@Buyukoglan2007], suggesting a suppressed role in regulating metabolism and immune system stability. Since women typically have higher body fat stores and leptin levels, the impact on women may be less pronounced compared to men. However, there is a lack of evidence to demonstrate this sex difference. 
 
-## Questions/Hypotheses to be addressed
+This paper presents findings on sexual differences in metabolism and immune responses in individuals initially infected with TB. The primary hypothesis is that women have a stronger immune response to TB due to higher body fat storage. Additionally, leptin is hypothesized to mediate immune response based on body energy storage.
 
-*State the research questions you plan to answer with this analysis.*
 
-To cite other work (important everywhere, but likely happens first in introduction), make sure your references are in the bibtex file specified in the YAML header above and have the right bibtex key. Then you can include like this:
-
-Examples of reproducible research projects can for instance be found in [@mckay2020; @mckay2020a].
 
 {{< pagebreak >}}
 
 # Methods
+## Study design and participants
 
-*Describe your methods. That should describe the data, the cleaning processes, and the analysis approaches. You might want to provide a shorter description here and all the details in the supplement.*
+From March to April 2017, a cross-sectional study was conducted in Kampala, Uganda. Sixty participants were recruited from Mulago Hospital, including 30 males and 30 females aged 15 years or older. All participants had a first episode of TB confirmed by culture or molecular methods. To prevent interference with metabolism and immune responses, individuals with co-morbidities such as asthma, kidney disease, liver disease, cancer, HIV, or diabetes were not enrolled. Those receiving hormonal or immune therapies were also excluded.
 
-## Schematic of workflow
+## Body index measures
 
-Sometimes you might want to show a schematic diagram/figure that was not created with code (if you can do it with code, do it). @fig-schematic is an example of some - completely random/unrelated - schematic that was generated with Biorender. We store those figures in the `assets` folder.
+At enrollment, basic body indices, including age, sex, height (m), and weight (kg), were measured. Participants who provided informed consent underwent total body water (TBW, L) estimation using deuterium dilution. Specifically, participants received a precisely weighed oral dose of deuterium oxide (~25-30g $D_2O$, 99.8% purity) after an overnight fast. Participants will be asked to refrain from eating and to consume only the minimum amount of water needed to quench thirst during the 4-hour equilibration period. Saliva samples collected before and after a 4-hour equilibration period were analyzed using Fourier transform infrared spectrophotometry to determine deuterium concentration, and TBW was estimated by extrapolating deuterium dilution space, adjusted by a factor of 1.041 [@IAEA2011]. Based on TBW estimates, lean body mass (LBM, kg) was further estimated assuming a hydration fraction of 0.732 [@IAEA2011]. Body fat mass (FM, kg) was calculated by substituting LBM from body weight. The percentage of TBW, LBM, and FM were calculated based on body weight. Fat mass index (FMI) and Fat-free mass index (FFMI) were calculated using FMI = FM (kg) / height (m2) and FFMI = LBM (kg) / height (m2). With consent, venous blood samples were collected to measure leptin levels (ug/L). All measurements were conducted at the Institute of Infectious Diseases at Makerere University. 
+
+## Immune response measures
+
+To assess immune activation, flow cytometry was used to measure CD4+ and CD8+ T cell counts in venous blood samples (7 ml of plasma). The percentages of CD4+ and CD8+ cells were calculated by dividing their counts by the total lymphocyte count. Levels of C-reactive protein (mg/dl), interferon-gamma (umol/ml), tumor necrosis factor-alpha (umol/ml), and interleukin-10 (ul/ml) were also measured as indicators of immune response. 
+
+
+*Sometimes you might want to show a schematic diagram/figure that was not created with code (if you can do it with code, do it). @fig-schematic is an example of some - completely random/unrelated - schematic that was generated with Biorender. We store those figures in the `assets` folder.*
 
 ```{r}
 #| label: fig-schematic
@@ -71,17 +83,9 @@ Sometimes you might want to show a schematic diagram/figure that was not created
 knitr::include_graphics(here("assets","antigen-recognition.png"))
 ```
 
-## Data aquisition
-
-*As applicable, explain where and how you got the data. If you directly import the data from an online source, you can combine this section with the next.*
-
-## Data import and cleaning
-
-*Write code that reads in the file and cleans it so it's ready for analysis. Since this will be fairly long code for most datasets, it might be a good idea to have it in one or several R scripts. If that is the case, explain here briefly what kind of cleaning/processing you do, and provide more details and well documented code somewhere (e.g. as supplement in a paper). All materials, including files that contain code, should be commented well so everyone can follow along.*
-
 ## Statistical analysis
 
-*Explain anything related to your statistical analyses.*
+*This part is under construction:* I will firstly compare body indices and immune response measures between males and females. As all variables of interest are continuous, I will use Wilcoxon rank sum test. To measure leptin’s effect in modulating immune activation and to link body energy storage with immune response strength, my initial plan is to use regression analysis to examine leptin’s mediator effect, but I’m seeking a more appropriate method. Of note, the sample size is relatively small, which may influence the significance of hypothesis tests. 
 
 {{< pagebreak >}}
 
@@ -144,15 +148,7 @@ knitr::kable(resulttable2)
 
 ## Conclusions
 
-*What are the main take-home messages?*
 
-*Include citations in your Rmd file using bibtex, the list of references will automatically be placed at the end*
-
-This paper [@leek2015] discusses types of analyses.
-
-These papers [@mckay2020; @mckay2020a] are good examples of papers published using a fully reproducible setup similar to the one shown in this template.
-
-Note that this cited reference will show up at the end of the document, the reference formatting is determined by the CSL file specified in the YAML header. Many more style files for almost any journal [are available](https://www.zotero.org/styles). You also specify the location of your bibtex reference file in the YAML. You can call your reference file anything you like.
 
 {{< pagebreak >}}
 

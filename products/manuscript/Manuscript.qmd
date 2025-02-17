@@ -71,16 +71,6 @@ At enrollment, basic body indices, including age, sex, height (m), and weight (k
 
 To assess immune activation, flow cytometry was used to measure CD4+ and CD8+ T cell counts in venous blood samples (7 ml of plasma). The percentages of CD4+ and CD8+ cells were calculated by dividing their counts by the total lymphocyte count. Levels of C-reactive protein (mg/dl), interferon-gamma (umol/ml), tumor necrosis factor-alpha (umol/ml), and interleukin-10 (ul/ml) were also measured as indicators of immune response. 
 
-
-*Sometimes you might want to show a schematic diagram/figure that was not created with code (if you can do it with code, do it). @fig-schematic is an example of some - completely random/unrelated - schematic that was generated with Biorender. We store those figures in the `assets` folder.*
-
-```{r}
-#| label: fig-schematic
-#| fig-cap: "A figure that is manually generated and shows some overview/schematic. This has nothing to do with the data, it's just a random one from one of our projects I found and placed here."
-#| echo: FALSE
-knitr::include_graphics(here("assets","antigen-recognition.png"))
-```
-
 ## Statistical analysis
 
 *This part is under construction:* I will firstly compare body indices and immune response measures between males and females. As all variables of interest are continuous, I will use Wilcoxon rank sum test. To measure leptin’s effect in modulating immune activation and to link body energy storage with immune response strength, my initial plan is to use regression analysis to examine leptin’s mediator effect, but I’m seeking a more appropriate method. Of note, the sample size is relatively small, which may influence the significance of hypothesis tests. 
@@ -95,42 +85,12 @@ knitr::include_graphics(here("assets","antigen-recognition.png"))
 
 @tbl-summarytable shows a summary of the data.
 
-Note the loading of the data providing a **relative** path using the `../../` notation. (Two dots means a folder up). You never want to specify an **absolute** path like `C:\ahandel\myproject\results\` because if you share this with someone, it won't work for them since they don't have that path. You can also use the `here` R package to create paths. See examples of that below. I generally recommend the `here` package.
 
-```{r}
-#| label: tbl-summarytable
-#| tbl-cap: "Data summary table."
-#| echo: FALSE
-resulttable=readRDS("../../results/tables/summarytable.rds")
-knitr::kable(resulttable)
-```
 
 ## Basic statistical analysis
 
 *To get some further insight into your data, if reasonable you could compute simple statistics (e.g. simple models with 1 predictor) to look for associations between your outcome(s) and each individual predictor variable. Though note that unless you pre-specified the outcome and main exposure, any "p\<0.05 means statistical significance" interpretation is not valid.*
 
-@fig-result shows a scatterplot figure produced by one of the R scripts.
-
-```{r}
-#| label: fig-result
-#| fig-cap: "Height and weight stratified by gender."
-#| echo: FALSE
-knitr::include_graphics(here("results","figures","height-weight-stratified.png"))
-```
-
-## Full analysis
-
-*Use one or several suitable statistical/machine learning methods to analyze your data and to produce meaningful figures, tables, etc. This might again be code that is best placed in one or several separate R scripts that need to be well documented. You want the code to produce figures and data ready for display as tables, and save those. Then you load them here.*
-
-Example @tbl-resulttable2 shows a summary of a linear model fit.
-
-```{r}
-#| label: tbl-resulttable2
-#| tbl-cap: "Linear model fit table."
-#| echo: FALSE
-resulttable2 = readRDS(here("results","tables","resulttable2.rds"))
-knitr::kable(resulttable2)
-```
 
 {{< pagebreak >}}
 

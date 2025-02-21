@@ -32,13 +32,13 @@ $*$ Corresponding author: guozheng0224\@uga.edu
 
 ## Background:
 
-## Methods: 
+## Methods:
 
-## Results: 
+## Results:
 
-## Conclusions: 
+## Conclusions:
 
-# Keywords: 
+# Keywords:
 
 *Write a summary of your project.*
 
@@ -50,62 +50,76 @@ As a global threat, tuberculosis (TB) caused 10.8 million new cases in 2023 with
 
 Males are more likely to develop TB disease than females, a difference that cannot be fully explained by socioeconomic status or access to healthcare [@Horton2016; @Ledesma2022]. Research has shown that this sexual bias is linked to differences in immune systems, influenced by chromosome-encoded genes and hormones [@Gupta2022]. Previous studies indicate that body fat mass could also affect immune responses [@Womack2007; @Ilavska2012]. Since women generally have higher body fat storage, their immune systems may receive sufficient energy to support a stronger response to infections compared to men. In diseases like TB that often cause body wasting [@Mupere2014], differences in energy reserves may contribute to variations in immune response between men and women.
 
-Leptin, a key link between metabolism and the immune system, plays an important role in activating and regulating immune responses [@Naylor2016; @Francisco2018]. It functions as an energy indicator, signaling whether the body has enough energy to activate and sustain immune responses [@Lord2002; @Cava2004]. For individuals with similar body fat mass, females generally have higher serum leptin levels than males [@Hickey1996]. However, leptin levels may be lower in tuberculosis patients [@Buyukoglan2007], suggesting a suppressed role in regulating metabolism and immune system stability. Since women typically have higher body fat stores and leptin levels, the impact on women may be less pronounced compared to men. However, there is a lack of evidence to demonstrate this sex difference. 
+Leptin, a key link between metabolism and the immune system, plays an important role in activating and regulating immune responses [@Naylor2016; @Francisco2018]. It functions as an energy indicator, signaling whether the body has enough energy to activate and sustain immune responses [@Lord2002; @Cava2004]. For individuals with similar body fat mass, females generally have higher serum leptin levels than males [@Hickey1996]. However, leptin levels may be lower in tuberculosis patients [@Buyukoglan2007], suggesting a suppressed role in regulating metabolism and immune system stability. Since women typically have higher body fat stores and leptin levels, the impact on women may be less pronounced compared to men. However, there is a lack of evidence to demonstrate this sex difference.
 
 This paper presents findings on sexual differences in metabolism and immune responses in individuals initially infected with TB. The primary hypothesis is that women have a stronger immune response to TB due to higher body fat storage. Additionally, leptin is hypothesized to mediate immune response based on body energy storage.
-
-
 
 {{< pagebreak >}}
 
 # Methods
+
 ## Study design and participants
 
 From March to April 2017, a cross-sectional study was conducted in Kampala, Uganda. Sixty participants were recruited from Mulago Hospital, including 30 males and 30 females aged 15 years or older. All participants had a first episode of TB confirmed by culture or molecular methods. To prevent interference with metabolism and immune responses, individuals with co-morbidities such as asthma, kidney disease, liver disease, cancer, HIV, or diabetes were not enrolled. Those receiving hormonal or immune therapies were also excluded.
 
 ## Body index measures
 
-At enrollment, basic body indices, including age, sex, height (m), and weight (kg), were measured. Participants who provided informed consent underwent total body water (TBW, L) estimation using deuterium dilution. Specifically, participants received a precisely weighed oral dose of deuterium oxide (~25-30g $D_2O$, 99.8% purity) after an overnight fast. Participants will be asked to refrain from eating and to consume only the minimum amount of water needed to quench thirst during the 4-hour equilibration period. Saliva samples collected before and after a 4-hour equilibration period were analyzed using Fourier transform infrared spectrophotometry to determine deuterium concentration, and TBW was estimated by extrapolating deuterium dilution space, adjusted by a factor of 1.041 [@IAEA2011]. Based on TBW estimates, lean body mass (LBM, kg) was further estimated assuming a hydration fraction of 0.732 [@IAEA2011]. Body fat mass (FM, kg) was calculated by substituting LBM from body weight. The percentage of TBW, LBM, and FM were calculated based on body weight. Fat mass index (FMI) and Fat-free mass index (FFMI) were calculated using FMI = FM (kg) / height ($m^2$) and FFMI = LBM (kg) / height ($m^2$). With consent, venous blood samples were collected to measure leptin levels (ug/L). All measurements were conducted at the Institute of Infectious Diseases at Makerere University. 
+At enrollment, basic body indices, including age, sex, height (m), and weight (kg), were measured. Participants who provided informed consent underwent total body water (TBW, L) estimation using deuterium dilution. Specifically, participants received a precisely weighed oral dose of deuterium oxide (\~25-30g $D_2O$, 99.8% purity) after an overnight fast. Participants will be asked to refrain from eating and to consume only the minimum amount of water needed to quench thirst during the 4-hour equilibration period. Saliva samples collected before and after a 4-hour equilibration period were analyzed using Fourier transform infrared spectrophotometry to determine deuterium concentration, and TBW was estimated by extrapolating deuterium dilution space, adjusted by a factor of 1.041 [@IAEA2011]. Based on TBW estimates, lean body mass (LBM, kg) was further estimated assuming a hydration fraction of 0.732 [@IAEA2011]. Body fat mass (FM, kg) was calculated by substituting LBM from body weight. The percentage of TBW, LBM, and FM were calculated based on body weight. Fat mass index (FMI) and Fat-free mass index (FFMI) were calculated using FMI = FM (kg) / height ($m^2$) and FFMI = LBM (kg) / height ($m^2$). With consent, venous blood samples were collected to measure leptin levels (ng/ml). All measurements were conducted at the Institute of Infectious Diseases at Makerere University.
 
 ## Immune response measures
 
-To assess immune activation, flow cytometry was used to measure CD4+ and CD8+ T cell counts in venous blood samples (7 ml of plasma). The percentages of CD4+ and CD8+ cells were calculated by dividing their counts by the total lymphocyte count. Levels of C-reactive protein (mg/dl), interferon-gamma (umol/ml), tumor necrosis factor-alpha (umol/ml), and interleukin-10 (ul/ml) were also measured as indicators of immune response. 
+To assess immune activation, flow cytometry was used to measure CD4+ and CD8+ T cell counts in venous blood samples (7 ml of plasma). The percentages of CD4+ and CD8+ cells were calculated by dividing their counts by the total lymphocyte count. Levels of C-reactive protein (CRP, mg/dl), interferon-gamma (INF-gamma, pg/ml), tumor necrosis factor-alpha (TNF-alpha, pg/ml), and interleukin-10 (IL-10, pg/ml) were also measured as indicators of immune response.
 
 ## Statistical analysis
 
-*This part is under construction:* I will firstly compare body indices and immune response measures between males and females. As all variables of interest are continuous, I will use Wilcoxon rank sum test. To measure leptin’s effect in modulating immune activation and to link body energy storage with immune response strength, my initial plan is to use regression analysis to examine leptin’s mediator effect, but I’m seeking a more appropriate method. Of note, the sample size is relatively small, which may influence the significance of hypothesis tests. 
+*This part is under construction:* I will firstly compare body indices and immune response measures between males and females. To measure leptin’s effect in modulating immune activation and to link body energy storage with immune response strength, my initial plan is to use regression analysis to examine leptin’s mediator effect, but I’m seeking a more appropriate method. Of note, the sample size is relatively small, which may influence the significance of hypothesis tests.
 
 {{< pagebreak >}}
 
 # Results
 
-## Exploratory/Descriptive analysis
+## Difference in body composition index by sex
 
-*Use a combination of text/tables/figures to explore and describe your data. Show the most important descriptive results here. Additional ones should go in the supplement. Even more can be in the R and Quarto files that are part of your project.*
+The 30 male and 30 female participants had a similar age distribution (@tbl-body). Males were taller (median = 168 cm, IQR: 158 cm-175 cm) and heavier (median = 55.2 kg, IQR: 50.0 kg-60.0 kg) than females, but BMI was similar between sexes (median: 19.48 vs. 19.20). Males had a higher body water proportion (median = 63.67%, IQR: 59.92%-68.09%) and lean body mass composition (median = 86.98%, IQR: 81.86%-93.01%), while females had a higher body fat composition (median = 21.37%, IQR: 14.74%-27.09%). After adjusting for height, males had a lower FMI (median: 2.46 vs. 4.41) but a higher FFMI (median: 16.80 vs. 15.19) than females. Leptin levels were higher in females than in males (median: 1.16 vs. 1.56).
 
-@tbl-summarytable shows a summary of the data.
+```{r}
+#| label: tbl-body
+#| tab-cap: "Body characteristics and composition by sex."
+#| echo: FALSE
+knitr::include_graphics(here("results","tables","table1.png"))
+```
 
+## Difference in immune response by sex
 
+CRP, INF-gamma, TNF-alpha, and IL-10 levels showed no clear differences between males and females (@fig-boxplot). However, females had more compact distributions for CRP, TNF-alpha, and IL-10 levels. Both sexes had INF-gamma levels well above zero. Lymphocyte subsets varied between sexes. CD4+ levels were lower in males but showed less variation. The difference was not evident regarding CD8+ level. Among males, the median CD4+ count was around 300/uL, with a median percentage of about 20%, while females had a median count above 400/uL. Both sexes had CD4+ and CD8+ counts as low as nearly zero. The maximum CD4+ count reached 800/uL, whereas the maximum CD8+ count was over 400/uL in males and nearly 700/uL in females.
 
-## Basic statistical analysis
+```{r}
+#| label: fig-boxplot
+#| fig-cap: "Comparison of immune response by sex. The boxplots denote immune response measures among male (blue) and female (orange) participants. "
+#| echo: FALSE
+knitr::include_graphics(here("results","figures","figure1.png"))
+```
 
-*To get some further insight into your data, if reasonable you could compute simple statistics (e.g. simple models with 1 predictor) to look for associations between your outcome(s) and each individual predictor variable. Though note that unless you pre-specified the outcome and main exposure, any "p\<0.05 means statistical significance" interpretation is not valid.*
+## Association between body composition and immune response
+
+Leptin levels were strongly associated with body fat among females, with a positive correlation (Pearson correlation coefficient = 0.6, @fig-sct). In contrast, leptin levels showed a negative correlation with lean body mass in females (Pearson correlation coefficient = -0.4). Males had consistently lower leptin levels than females, with no evident correlation with body fat or lean body mass. No clear association was observed between leptin levels and lymphocyte subsets. The correlation between leptin levels and the percentage of CD4+ cells was weak (Pearson correlation coefficient = 0.09). Similarly, the correlation with the percentage of CD8+ cells was slightly negative but not significant (Pearson correlation coefficient = -0.13). 
+
+```{r}
+#| label: fig-sct
+#| fig-cap: "Association between log-transformed leptin level and body fat, lean body mass, percentage of CD4+ cells, and percentage of CD8+ cells. Male and female participants are denoted by blue and pink points, respectively. The size of point denotes body weight of each participant. R marks the Pearson correlation coefficients. "
+#| echo: FALSE
+knitr::include_graphics(here("results","figures","figure2.png"))
+```
+
+## Mediation effect of leptin in immune response activation
 
 
 {{< pagebreak >}}
 
 # Discussion
 
-## Summary and Interpretation
-
-*Summarize what you did, what you found and what it means.*
-
-## Strengths and Limitations
-
-*Discuss what you perceive as strengths and limitations of your analysis.*
 
 ## Conclusions
-
 
 
 {{< pagebreak >}}

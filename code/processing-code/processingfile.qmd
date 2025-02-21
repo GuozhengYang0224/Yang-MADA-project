@@ -1,6 +1,6 @@
 ---
-title: "An example cleaning script"
-author: "Andreas Handel"
+title: "Data cleaning demo"
+author: "Guozheng Yang"
 date: "2024-02-07"
 output: html_document
 ---
@@ -10,14 +10,11 @@ output: html_document
 
 This contains the same code and comments/information as `processingcode.R`.
 
-This just shows it as Quarto file, to give you an idea how to do it in a setup that combines code and text in a single file.
-
-See the other Quarto file for my currently preferred approach of pulling code from the R script into the Quarto file.
-
+But one can directly see some of the outputs.
 
 # Setup
 
-Load needed packages. make sure they are installed.
+Load needed packages. 
 
 ```{r}
 library(readxl) #for loading Excel files
@@ -30,29 +27,18 @@ library(here) #to set paths
 
 # Data loading
 
-Note that for functions that come from specific packages (instead of base R), I often specify both package and function like so:
-package::function() that's not required one could just call the function specifying the package makes it clearer where the function "lives",
-but it adds typing. You can do it either way.
-
 ```{r}
 # path to data
-# note the use of the here() package and not absolute paths
-data_location <- here::here("data","raw-data","exampledata.xlsx")
+data_location <- here::here("data","raw-data","data0.xlsx")
 rawdata <- readxl::read_excel(data_location)
 ```
 
 
 # Check data
 
-First we can look at the codebook
+The codebook for this data is in the READMD file in the raw-data sub-folder.
 
-```{r}
-codebook <- readxl::read_excel(data_location, sheet ="Codebook")
-print(codebook)
-```
-
-
-Several ways of looking at the data
+An overview of the data structure.
 
 ```{r}
 dplyr::glimpse(rawdata)
@@ -65,79 +51,68 @@ skimr::skim(rawdata)
 
 # Cleaning
 
-By inspecting the data as done above, we find some problems that need addressing:
+I will check the variables one by one. 
 
-First, there is an entry for height which says "sixty" instead of a number. 
-Does that mean it should be a numeric 60? It somehow doesn't make sense since the weight is 60kg, which can't happen for a 60cm person (a baby).
-Since we don't know how to fix this, we might decide to remove the person. This "sixty" entry also turned all Height entries into characters instead of numeric. That conversion to character also means that our summary function isn't very meaningful. So let's fix that first.
+*ID*: looks good
 
-```{r}
-d1 <- rawdata %>% dplyr::filter( Height != "sixty" ) %>% 
-                  dplyr::mutate(Height = as.numeric(Height))
-skimr::skim(d1)
-hist(d1$Height)
-```
+*Sex*: looks good
 
-Now we see that there is one person with a height of 6. That could be a typo, or someone mistakenly entered their height in feet. Since we unfortunately don't know, we might need to remove this person, which we'll do here.
+*Age*: looks good
 
-```{r}
-d2 <- d1 %>% dplyr::mutate( Height = replace(Height, Height=="6",round(6*30.48,0)) )
-skimr::skim(d2)
-```
+*Height*: looks good
 
-Height values seem ok now.
+*Weight*: looks good
 
-Now let's look at the `Weight` variable. There is a person with weight of 7000, which is impossible, and one person with missing weight.
-To be able to analyze the data, we'll remove those individuals as well.
+*BMI*: looks good
 
-```{r}
-d3 <- d2 %>%  dplyr::filter(Weight != 7000) %>% tidyr::drop_na()
-skimr::skim(d3)
-```
+*TBW_L & TBW_pct*:
 
-Now checking the `Gender` variable. Gender should be a categorical/factor variable but is loaded as character. We can fix that with simple base R code to mix things up.
+*TBW_L* only makes sense when it is lower than body weight. 
+The *TBW_pct* should be within (0, 1).
+Wrongly measured *TBW_L* will also result in weird read in other body indices.
+Note that all individuals with *TBW_pct*>73% have negative *Fat_kg*.
+Also, all individuals with *TBW_pct*<0 have *Fat_pct*>1. 
+Here I keep all *TBW_pct*>73% or *TBW_pct*<0 and corresponding *TBW_L* as missing.
+Other body composition indices will also be kept as NA.
 
 ```{r}
-d3$Gender <- as.factor(d3$Gender)  
-skimr::skim(d3)
+d1 <- rawdata %>%
+  mutate(across(TBW_L:FFMI, ~ ifelse(TBW_pct > 0.73 | TBW_pct < 0, NA, .))) %>%
+  mutate(across(ends_with("_pct"), ~ .*100)) # multiply percentages by 100
 ```
 
+*Leptin_ng_ml*: looks good (one extremely high - 44+, but it's still reasonable)
 
-Now we see that there is another NA, but it's not `NA` from R, instead it was loaded as character and is now considered as a category.
-Well proceed here by removing that individual with that NA entry. Since this keeps an empty category for Gender, I'm also using droplevels() to get rid of it.
+*CRP_mg_dl*: looks good
+
+*INF_Gamma_pg_ml*: looks good
+
+*TNF_Alpha_pg_ml*: looks good
+
+*IL_10_pg_mL*: looks good
+
+*CD4_plus*: looks good
+
+*CD4_plus_pct*: looks good (multiplied by 100 in last step)
+
+*CD8_plus*: looks good
+
+*CD8_plus_pct*: looks good (multiplied by 100 in last step)
+
+All the other variables are fine. But I will round CD4+ counts and CD8+ counts to the nearest integer. 
 
 ```{r}
-d4 <- d3 %>% dplyr::filter( !(Gender %in% c("NA","N")) ) %>% droplevels()
-skimr::skim(d4)
+d2 <- d1 %>%
+  mutate(CD4_plus=round(CD4_plus),
+         CD8_plus=round(CD8_plus))
 ```
 
-
-All done, data is clean now. 
-
-Let's assign at the end to some final variable, this makes it easier to add further cleaning steps above.
+The data cleaning process is completed. Let's take a final look at the cleaned data.
 
 ```{r}
-processeddata <- d4
+dplyr::glimpse(d2)
+summary(rawdata)
+head(rawdata)
+skimr::skim(rawdata)
 ```
-
-
-# Save data 
-
-Finally, we save the clean data as RDS file. I suggest you save your processed and cleaned data as RDS or RDA/Rdata files. 
-This preserves coding like factors, characters, numeric, etc.  If you save as CSV, that information would get lost.
-However, CSV is better for sharing with others since it's plain text. If you do CSV, you might want to write down somewhere what each variable is.
-
-See here for some suggestions on how to store your processed data:
-http://www.sthda.com/english/wiki/saving-data-into-r-data-format-rds-and-rdata
-
-```{r}
-save_data_location <- here::here("data","processed-data","processeddata.rds")
-saveRDS(processeddata, file = save_data_location)
-```
-
-
-
-# Notes
-
-Removing anyone who had "faulty" or missing data is one approach. It's often not the best. based on your question and your analysis approach, you might want to do cleaning differently (e.g. keep individuals with some missing information).
 

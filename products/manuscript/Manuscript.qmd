@@ -72,7 +72,8 @@ To assess immune activation, flow cytometry was used to measure CD4+ and CD8+ T 
 
 ## Statistical analysis
 
-*This part is under construction:* I will firstly compare body indices and immune response measures between males and females. To measure leptin’s effect in modulating immune activation and to link body energy storage with immune response strength, my initial plan is to use regression analysis to examine leptin’s mediator effect, but I’m seeking a more appropriate method. Of note, the sample size is relatively small, which may influence the significance of hypothesis tests.
+
+
 
 {{< pagebreak >}}
 
@@ -84,7 +85,7 @@ The 30 male and 30 female participants had a similar age distribution (@tbl-body
 
 ```{r}
 #| label: tbl-body
-#| tab-cap: "Body characteristics and composition by sex."
+#| tbl-cap: "Body characteristics and composition by sex."
 #| echo: FALSE
 knitr::include_graphics(here("results","tables","table1.png"))
 ```
@@ -113,6 +114,26 @@ knitr::include_graphics(here("results","figures","figure2.png"))
 
 ## Mediation effect of leptin in immune response activation
 
+(@tbl-coef)
+
+
+```{r}
+#| label: tbl-coef
+#| tbl-cap: "Coefficient estimation (95% CI) from linear regression and Poisson regression."
+#| echo: FALSE
+knitr::include_graphics(here("results","tables","table2.png"))
+```
+
+
+(@tbl-ma)
+
+
+```{r}
+#| label: tbl-ma
+#| tbl-cap: "Mediation analysis with estimated effects and 95% CI."
+#| echo: FALSE
+knitr::include_graphics(here("results","tables","table3.png"))
+```
 
 {{< pagebreak >}}
 

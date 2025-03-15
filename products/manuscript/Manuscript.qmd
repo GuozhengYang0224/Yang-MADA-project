@@ -28,19 +28,27 @@ $*$ Corresponding author: guozheng0224\@uga.edu
 
 {{< pagebreak >}}
 
-# Abstract
+# Abstract {.unnumbered}
 
-## Background:
+## Background: {.unnumbered}
 
-## Methods:
+In tuberculosis infection, higher body fat storage in females may better support immune activation and response compared to males. Leptin may mediate this process, bridging metabolism and the immune system.
 
-## Results:
+## Methods: {.unnumbered}
 
-## Conclusions:
+We conducted a cross-sectional study in Kampala, Uganda, recruiting 60 participants with the first episode of tuberculosis. Demographic characteristics, body composition indices, and immune response measures were compared between 30 male and 30 female participants. A structural equation-based mediation analysis examined the association between CD4+ cell levels and body fat, as well as leptin’s mediation effect. The analysis was performed for all participants and separately by sex.
 
-# Keywords:
+## Results: {.unnumbered}
 
-*Write a summary of your project.*
+Compared to male participants, females had a higher fat mass index (median: 2.46 vs. 4.41), higher leptin levels (median: 1.16 ng/ml vs. 1.56 ng/ml), and higher CD4+ cell levels. Leptin levels were positively associated with body fat storage, with a stronger effect observed in females. Among all participants, 82% of the effect of body fat storage on immune activation was mediated by leptin, with a more pronounced mediation effect in females than in males.
+
+## Conclusions: {.unnumbered}
+
+Enhancing body fat storage may support immune activation in tuberculosis infection. Leptin could serve as a therapeutic target for sex-specific immune modulation in tuberculosis.
+
+# Keywords: {.unnumbered}
+
+**Tuberculosis, leptin, body fat, immune response**
 
 {{< pagebreak >}}
 
@@ -78,7 +86,7 @@ We examined the predictability of fat mass index to leptin level using a simple 
 
 ## Difference in body composition index by sex
 
-The 30 male and 30 female participants had a similar age distribution (@tbl-body). Males were taller (median = 168 cm, IQR: 158 cm-175 cm) and heavier (median = 55.2 kg, IQR: 50.0 kg-60.0 kg) than females, but BMI was similar between sexes (median: 19.48 vs. 19.20). Males had a higher body water proportion (median = 63.67%, IQR: 59.92%-68.09%) and lean body mass composition (median = 86.98%, IQR: 81.86%-93.01%), while females had a higher body fat composition (median = 21.37%, IQR: 14.74%-27.09%). After adjusting for height, males had a lower FMI (median: 2.46 vs. 4.41) but a higher FFMI (median: 16.80 vs. 15.19) than females. Leptin levels were higher in females than in males (median: 1.16 vs. 1.56).
+The 30 male and 30 female participants had a similar age distribution (@tbl-body). Males were taller (median = 168 cm, IQR: 158 cm-175 cm) and heavier (median = 55.2 kg, IQR: 50.0 kg-60.0 kg) than females, but BMI was similar between sexes (median: 19.48 vs. 19.20). Males had a higher body water proportion (median = 63.67%, IQR: 59.92%-68.09%) and lean body mass composition (median = 86.98%, IQR: 81.86%-93.01%), while females had a higher body fat composition (median = 21.37%, IQR: 14.74%-27.09%). After adjusting for height, males had a lower FMI (median: 2.46 vs. 4.41) but a higher FFMI (median: 16.80 vs. 15.19) than females. Leptin levels were higher in females than in males (median: 1.16 ng/ml vs. 1.56 ng/ml).
 
 ```{r}
 #| label: tbl-body
@@ -132,9 +140,7 @@ knitr::include_graphics(here("results","tables","table3.png"))
 # Discussion
 
 
-## Conclusions
-
 
 {{< pagebreak >}}
 
-# References
+# References {.unnumbered}

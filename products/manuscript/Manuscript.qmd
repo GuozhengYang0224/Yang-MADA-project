@@ -54,8 +54,6 @@ Leptin, a key link between metabolism and the immune system, plays an important 
 
 This paper presents findings on sexual differences in metabolism and immune responses in individuals initially infected with TB. The primary hypothesis is that women have a stronger immune response to TB due to higher body fat storage. Additionally, leptin is hypothesized to mediate immune response based on body energy storage.
 
-{{< pagebreak >}}
-
 # Methods
 
 ## Study design and participants
@@ -72,10 +70,9 @@ To assess immune activation, flow cytometry was used to measure CD4+ and CD8+ T 
 
 ## Statistical analysis
 
+In the descriptive analysis, we compared the distribution of demographic characteristics (e.g., age, height, weight) and body composition indices (e.g., body fat, lean body mass, leptin level) between male and female participants using the median and interquartile range (IQR). Differences in immune responses were visualized with boxplots showing the distributions of available measures, including CD4+ cell counts, CRP levels, and INF-gamma levels. The association between log-transformed leptin levels and body fat, lean body mass, percentage of CD4+ cells, and percentage of CD8+ cells was assessed using scatterplots with Pearson correlation coefficients.
 
-
-
-{{< pagebreak >}}
+We examined the predictability of fat mass index to leptin level using a simple linear regression. A Poisson regression model was applied to CD4+ cell counts using a log link, with fat mass index and leptin level as predictors. All leptin levels in regression models used the logarithmic transformation. We estimated standardized regression coefficients and calculated the total, direct, and indirect effects of fat mass index on CD4+ cell counts [@Sobel1982]. The mediation effect of leptin was quantified as the indirect effect divided by the total effect, expressed as the percentage of the total effect mediated by leptin [@Baron1986]. Confidence intervals (CI) at the 95% confidence level for all estimated effects were obtained using the bootstrap method with 500 replicates. The mediation analysis was first conducted for all participants. We then performed a subgroup analysis by applying the mediation analysis separately to male and female participants.
 
 # Results
 
@@ -114,8 +111,7 @@ knitr::include_graphics(here("results","figures","figure2.png"))
 
 ## Mediation effect of leptin in immune response activation
 
-(@tbl-coef)
-
+When fitting linear regression for all participants, leptin level was positively associated with FMI ($\beta$=0.100, 95% CI: 0.064-0.135, @tbl-coef). A similar positive association was observed among female participants ($\beta$=0.113, 95% CI: 0.062-0.165), but not among males ($\beta$=0.000, 95% CI: -0.003-0.002). When predicting CD4+ cell counts using FMI and leptin level for all participants, both predictors showed a positive association ($\beta$=0.008, 95% CI: 0.000-0.017 for FMI; $\beta$=0.364, 95% CI: 0.314-0.413 for leptin level). Among males, both FMI ($\beta$=0.025, 95% CI: 0.011-0.040) and leptin level ($\beta$=6.995, 95% CI: 4.489-9.500) were positively associated with CD4+ cell counts. However, among females, CD4+ cell counts were positively associated only with leptin level ($\beta$=0.322, 95% CI: 0.262-0.381). 
 
 ```{r}
 #| label: tbl-coef
@@ -124,9 +120,7 @@ knitr::include_graphics(here("results","figures","figure2.png"))
 knitr::include_graphics(here("results","tables","table2.png"))
 ```
 
-
-(@tbl-ma)
-
+Among all participants, FMI had a notable effect on promoting CD4+ cell counts (total effect=0.25, 95% CI: -0.15-0.57, @tbl-ma), with a large proportion (indirect effect=0.20, 95% CI: -0.14-0.55) mediated by leptin level. The mediation effect of leptin accounted for 82% of the total effect of FMI. A similar pattern was observed among female participants, where the effect of FMI (total effect=0.24, 95% CI: -0.35-0.67) was almost entirely mediated by leptin (indirect effect=0.24, 95% CI: -0.30-0.80). Among male participants, CD4+ cell counts were primarily influenced by the direct effect of FMI (total effect=0.09, 95% CI: -0.55-0.76; direct effect=0.10, 95% CI: -0.57-0.89).
 
 ```{r}
 #| label: tbl-ma
@@ -134,8 +128,6 @@ knitr::include_graphics(here("results","tables","table2.png"))
 #| echo: FALSE
 knitr::include_graphics(here("results","tables","table3.png"))
 ```
-
-{{< pagebreak >}}
 
 # Discussion
 

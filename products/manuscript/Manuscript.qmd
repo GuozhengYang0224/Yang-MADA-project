@@ -36,11 +36,11 @@ In tuberculosis infection, higher body fat storage in females may better support
 
 ## Methods: {.unnumbered}
 
-We conducted a cross-sectional study in Kampala, Uganda, recruiting 60 participants with the first episode of tuberculosis. Demographic characteristics, body composition indices, and immune response measures were compared between 30 male and 30 female participants. A structural equation-based mediation analysis examined the association between CD4+ cell levels and body fat, as well as leptin’s mediation effect. The analysis was performed for all participants and separately by sex.
+We conducted a cross-sectional study in Kampala, Uganda, recruiting 60 participants with the first episode of tuberculosis. Demographic characteristics, body composition indices, and immune response measures were compared between 30 male and 30 female participants. A structural equation-based mediation analysis examined the association between CD4+ cell levels and body fat, as well as leptin’s mediation effect. The analysis was performed for all participants and separately by sex. To incorporate material from this course, we further evaluated the performance of random forest and regression tree models in predicting leptin levels using body composition indices. One-fifth of the data set was reserved as a test set for model evaluation, while hyperparameter tuning was conducted on the training set using five-fold cross-validation.
 
 ## Results: {.unnumbered}
 
-Compared to male participants, females had a higher fat mass index (median: 2.46 vs. 4.41), higher leptin levels (median: 1.16 ng/ml vs. 1.56 ng/ml), and higher CD4+ cell levels. Leptin levels were positively associated with body fat storage, with a stronger effect observed in females. Among all participants, 82% of the effect of body fat storage on immune activation was mediated by leptin, with a more pronounced mediation effect in females than in males.
+Compared to male participants, females had a higher fat mass index (median: 2.46 vs. 4.41), higher leptin levels (median: 1.16 ng/ml vs. 1.56 ng/ml), and higher CD4+ cell levels. Leptin levels were positively associated with body fat storage, with a stronger effect observed in females. Among all participants, 82% of the effect of body fat storage on immune activation was mediated by leptin, with a more pronounced mediation effect in females than in males. The random forest model is better than the regression tree in predicting leptin levels using body composition indices, with a lower root mean squared error (0.40 vs 0.41) and a higher R-square (0.53 vs. 0.23) on the test set. 
 
 ## Conclusions: {.unnumbered}
 
@@ -70,7 +70,7 @@ From March to April 2017, a cross-sectional study was conducted in Kampala, Ugan
 
 ## Body index measures
 
-At enrollment, basic body indices, including age, sex, height (m), and weight (kg), were measured. Participants who provided informed consent underwent total body water (TBW, L) estimation using deuterium dilution. Specifically, participants received a precisely weighed oral dose of deuterium oxide (\~25-30g $D_2O$, 99.8% purity) after an overnight fast. Participants will be asked to refrain from eating and to consume only the minimum amount of water needed to quench thirst during the 4-hour equilibration period. Saliva samples collected before and after a 4-hour equilibration period were analyzed using Fourier transform infrared spectrophotometry to determine deuterium concentration, and TBW was estimated by extrapolating deuterium dilution space, adjusted by a factor of 1.041 [@IAEA2011]. Based on TBW estimates, lean body mass (LBM, kg) was further estimated assuming a hydration fraction of 0.732 [@IAEA2011]. Body fat mass (FM, kg) was calculated by substituting LBM from body weight. The percentage of TBW, LBM, and FM were calculated based on body weight. Fat mass index (FMI) and Fat-free mass index (FFMI) were calculated using FMI = FM (kg) / height ($m^2$) and FFMI = LBM (kg) / height ($m^2$). With consent, venous blood samples were collected to measure leptin levels (ng/ml). All measurements were conducted at the Institute of Infectious Diseases at Makerere University.
+At enrollment, basic body indices, including age, sex, height (m), and weight (kg), were measured. Participants who provided informed consent underwent total body water (TBW, L) estimation using deuterium dilution. Specifically, participants received a precisely weighed oral dose of deuterium oxide (\~25-30g $D_2O$, 99.8% purity) after an overnight fast. Participants were asked to refrain from eating and to consume only the minimum amount of water needed to quench thirst during the 4-hour equilibration period. Saliva samples collected before and after a 4-hour equilibration period were analyzed using Fourier transform infrared spectrophotometry to determine deuterium concentration, and TBW was estimated by extrapolating deuterium dilution space, adjusted by a factor of 1.041 [@IAEA2011]. Based on TBW estimates, lean body mass (LBM, kg) was further estimated assuming a hydration fraction of 0.732 [@IAEA2011]. Body fat mass (FM, kg) was calculated by substituting LBM from body weight. The percentage of TBW, LBM, and FM were calculated based on body weight. Fat mass index (FMI) and Fat-free mass index (FFMI) were calculated using FMI = FM (kg) / height ($m^2$) and FFMI = LBM (kg) / height ($m^2$). With consent, venous blood samples were collected to measure leptin levels (ng/ml). All measurements were conducted at the Institute of Infectious Diseases at Makerere University.
 
 ## Immune response measures
 
@@ -82,11 +82,13 @@ In the descriptive analysis, we compared the distribution of demographic charact
 
 We examined the predictability of fat mass index to leptin level using a simple linear regression. A Poisson regression model was applied to CD4+ cell counts using a log link, with fat mass index and leptin level as predictors. All leptin levels in regression models used the logarithmic transformation. We estimated standardized regression coefficients and calculated the total, direct, and indirect effects of fat mass index on CD4+ cell counts [@Sobel1982]. The mediation effect of leptin was quantified as the indirect effect divided by the total effect, expressed as the percentage of the total effect mediated by leptin [@Baron1986]. Confidence intervals (CI) at the 95% confidence level for all estimated effects were obtained using the bootstrap method with 500 replicates. The mediation analysis was first conducted for all participants. We then performed a subgroup analysis by applying the mediation analysis separately to male and female participants.
 
+We further compared the performance of random forest and regression tree models in predicting log-transformed leptin levels using body composition indices. The predictors included gender, age, BMI, percentage of lean body mass, and percentage of fat mass. One-fifth of the dataset was set aside as the test set, with the remaining data used for training. Five-fold cross-validation was applied to the training set for hyperparameter tuning. For the random forest model, a grid search was conducted to optimize the number of randomly sampled predictors and the minimum number of observations required to split a node, targeting the lowest root mean squared error (RMSE). For the regression tree model, cost complexity and tree depth were tuned to minimize RMSE as well. Model performance was evaluated on the test set using RMSE and R-squared.
+
 # Results
 
 ## Difference in body composition index by sex
 
-The 30 male and 30 female participants had a similar age distribution (@tbl-body). Males were taller (median = 168 cm, IQR: 158 cm-175 cm) and heavier (median = 55.2 kg, IQR: 50.0 kg-60.0 kg) than females, but BMI was similar between sexes (median: 19.48 vs. 19.20). Males had a higher body water proportion (median = 63.67%, IQR: 59.92%-68.09%) and lean body mass composition (median = 86.98%, IQR: 81.86%-93.01%), while females had a higher body fat composition (median = 21.37%, IQR: 14.74%-27.09%). After adjusting for height, males had a lower FMI (median: 2.46 vs. 4.41) but a higher FFMI (median: 16.80 vs. 15.19) than females. Leptin levels were higher in females than in males (median: 1.16 ng/ml vs. 1.56 ng/ml).
+The 30 male and 30 female participants had a similar age distribution (@tbl-body). Males were taller (median = 168.00 cm, IQR: 158.00 cm-175.00 cm) and heavier (median = 55.20 kg, IQR: 50.00 kg-60.00 kg) than females, but BMI was similar between sexes (median: 19.48 vs. 19.20). Males had a higher body water proportion (median = 63.67%, IQR: 59.92%-68.09%) and lean body mass composition (median = 86.98%, IQR: 81.86%-93.01%), while females had a higher body fat composition (median = 21.37%, IQR: 14.74%-27.09%). After adjusting for height, males had a lower FMI (median: 2.46 vs. 4.41) but a higher FFMI (median: 16.80 vs. 15.19) than females. Leptin levels were higher in females than in males (median: 1.16 ng/ml vs. 1.56 ng/ml).
 
 ```{r}
 #| label: tbl-body
@@ -137,13 +139,40 @@ Among all participants, FMI had a notable effect on promoting CD4+ cell counts (
 knitr::include_graphics(here("results","tables","table3.png"))
 ```
 
+## Prediction leptin level using body compositions
+
+The tuning results indicate that the random forest model achieved optimal performance with five randomly sampled predictors and a minimum split size of approximately 15 (@fig-rf). This led to an RMSE of 0.40 and an R-square of 0.53 on the test set. In contrast, the regression tree model demonstrated minimal variation in RMSE across different values of tree depth and cost complexity (@fig-rt), with the optimal parameter set resulting in an RMSE of 0.41 and an R-square of 0.23 in the test set. This lack of sensitivity to parameter changes suggests that the regression tree may have reached its performance ceiling due to the limited sample size and the model's inherent simplicity. Unlike random forest, which benefits from averaging multiple trees and capturing more complex patterns, the single-tree structure of the regression tree model may not sufficiently capture the underlying variability in the data.
+
+```{r}
+#| label: fig-rf
+#| fig-cap: "Parameter tuning results of random forest. "
+#| echo: FALSE
+knitr::include_graphics(here("results","figures","figure3.png"))
+```
+
+```{r}
+#| label: fig-rt
+#| fig-cap: "Parameter tuning results of regression tree. "
+#| echo: FALSE
+knitr::include_graphics(here("results","figures","figure4.png"))
+```
+
+The plots comparing predicted values and observed values further illustrate the performance differences between the two models (@fig-rfrt). Predicted values from the random forest model are more clustered, generally following the diagonal line. This indicates a better agreement between predicted and observed leptin levels. In contrast, the regression tree model shows clear signs of underfitting, with predicted values appearing in discrete horizontal bands and failing to capture the continuous nature of leptin levels. This is one of the characteristics of single-tree models, which produces piece-wise constant predictions and lacks the flexibility to model associations. Overall, the random forest model provides more accurate and nuanced predictions, benefiting from its more flexible structure and ability to reduce variance.
+
+```{r}
+#| label: fig-rfrt
+#| fig-cap: "Comparison of random forest and regression tree: predicted values vs. observed values. "
+#| echo: FALSE
+knitr::include_graphics(here("results","figures","figure5.png"))
+```
+
 # Discussion
 
 This study examined the role of leptin in metabolism and immune response regulation. The sample included 30 males and 30 females with the first TB episode from Uganda. Our findings revealed that females had higher body fat storage, higher leptin levels, and stronger immune responses. Body fat was positively associated with leptin levels, and leptin mediated the effect of body fat on immune activation.
 
 Our findings align with previous studies showing that females tend to have a stronger immune response than males [@Klein2016]. This difference in immunity may influence susceptibility and the speed of infection clearance between sexes [@Takahashi2021]. This study focused on immune activation and identified a sex-based difference in CD4+ cell levels, consistent with findings from a previous study [@Bothamley2021]. Recent research also indicates that changes in body fat in males can significantly reduce CD8+ cell levels compared to females [@Dhanyalayam2024]. Our study, along with previous research, provides evidence of sex-specific differences in the initiation and dynamic response of the immune system to TB infection. Our study also identified leptin as a bridge between metabolism and the immune system. This suggests its potential as a therapeutic target for regulating immune responses based on specific metabolic conditions [@Naylor2016]. Animal-based preclinical studies have demonstrated its practical significance [@Fantuzzi2000], but further research is needed to assess its clinical applicability in human populations.
 
-This study has several limitations. First, the small sample size reduced the statistical power of the analysis. Sample loss due to the instability of the deuterium dilution approach in measuring body water further limited the detection of significant associations. Second, non-biological factors such as professional exposure, alcohol use, and smoking status [@Wigger2022] were not controlled, which could have influenced immune responses. Given their higher prevalence among males [@Soh2017], these factors may have confounded the findings. Despite these limitations, this study provides valuable insights that complement previous research. Future studies should explore the dynamic regulatory role of leptin at different stages of immune responses.
+This study has several limitations. First, the small sample size reduced the statistical power of the analysis. Sample loss due to the instability of the deuterium dilution approach in measuring body water further limited the detection of significant associations. Second, non-biological factors such as professional exposure, alcohol use, and smoking status [@Wigger2022] were not controlled, which could have influenced immune responses. Given their higher prevalence among males [@Soh2017], these factors may have confounded the findings. the machine learning component of this study serves primarily as a methodological exercise due to the limited sample size. A substantially larger data set would be required to enable a more robust and convincing comparison between the random forest and regression tree models. However, recruiting a sufficiently large sample of patients experiencing their first episode of TB in high-prevalence regions remains a significant challenge. Despite these limitations, this study provides valuable insights that complement previous research. Future studies should explore the dynamic regulatory role of leptin at different stages of immune responses.
 
 {{< pagebreak >}}
 

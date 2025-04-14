@@ -84,6 +84,8 @@ We examined the predictability of fat mass index to leptin level using a simple 
 
 We further compared the performance of random forest and regression tree models in predicting log-transformed leptin levels using body composition indices. The predictors included gender, age, BMI, percentage of lean body mass, and percentage of fat mass. One-fifth of the dataset was set aside as the test set, with the remaining data used for training. Five-fold cross-validation was applied to the training set for hyperparameter tuning. For the random forest model, a grid search was conducted to optimize the number of randomly sampled predictors and the minimum number of observations required to split a node, targeting the lowest root mean squared error (RMSE). For the regression tree model, cost complexity and tree depth were tuned to minimize RMSE as well. Model performance was evaluated on the test set using RMSE and R-squared.
 
+Last, we simulated a data set with log-transformed leptin level, sex, age, and BMI. This simulated data set was then used to examine the performance of random forest model in predicting leptin level using the other variables as predictors. The sex variable was generated using a Bernoulli distribution with a probability of 0.6 of being females. Age was assumed to follow a normal distribution with a mean of 35 and standard deviation of 3. BMI was also assumed a normal distribution with a mean of 25 and standard deviation of 1.5. We generated log-transformed leptin levels assuming the relationship between it and the other predictors as: $log-leptin=8*Sex-0.1*Age^2+6*Age+exp(0.05*BMI)$. Besides the association structure as described above, we also added an error term following a standard normal distribution. The model evaluation process was the same as conducted on the real-world data set. 
+
 # Results
 
 ## Difference in body composition index by sex
@@ -166,11 +168,29 @@ The plots comparing predicted values and observed values further illustrate the 
 knitr::include_graphics(here("results","figures","figure5.png"))
 ```
 
+# Simulation study using random forest
+
+The performance of the random forest model on the simulated data set appears to be highly accurate and optimized (@fig-rfsim, @fig-rfpredsim). The parameter tuning results demonstrate that the lowest RMSE was achieved when the number of randomly sampled predictors was set to 3 and the minimum number of split points was 37. In contrast, the model exhibited higher RMSEs as the number of randomly sampled predictors decreased, suggesting that incorporating a larger subset of predictors improves predictive performance. Additionally, the scatterplot comparing predicted and observed values shows that most points lie very close to the diagonal line, indicating strong agreement between predictions and actual outcomes. These findings collectively suggest that the random forest model effectively captured the complex, non-linear relationships embedded in the simulated data, resulting in robust and reliable predictions.
+
+```{r}
+#| label: fig-rfsim
+#| fig-cap: "Parameter tuning results of random forest model using simulated data. "
+#| echo: FALSE
+knitr::include_graphics(here("results","figures","figure6.png"))
+```
+
+```{r}
+#| label: fig-rfpredsim
+#| fig-cap: "Fitting results of random forest on simulated data: predicted values vs. observed values. "
+#| echo: FALSE
+knitr::include_graphics(here("results","figures","figure7.png"))
+```
+
 # Discussion
 
 This study examined the role of leptin in metabolism and immune response regulation. The sample included 30 males and 30 females with the first TB episode from Uganda. Our findings revealed that females had higher body fat storage, higher leptin levels, and stronger immune responses. Body fat was positively associated with leptin levels, and leptin mediated the effect of body fat on immune activation.
 
-Our findings align with previous studies showing that females tend to have a stronger immune response than males [@Klein2016]. This difference in immunity may influence susceptibility and the speed of infection clearance between sexes [@Takahashi2021]. This study focused on immune activation and identified a sex-based difference in CD4+ cell levels, consistent with findings from a previous study [@Bothamley2021]. Recent research also indicates that changes in body fat in males can significantly reduce CD8+ cell levels compared to females [@Dhanyalayam2024]. Our study, along with previous research, provides evidence of sex-specific differences in the initiation and dynamic response of the immune system to TB infection. Our study also identified leptin as a bridge between metabolism and the immune system. This suggests its potential as a therapeutic target for regulating immune responses based on specific metabolic conditions [@Naylor2016]. Animal-based preclinical studies have demonstrated its practical significance [@Fantuzzi2000], but further research is needed to assess its clinical applicability in human populations.
+Our findings align with previous studies showing that females tend to have a stronger immune response than males [@Klein2016]. This difference in immunity may influence susceptibility and the speed of infection clearance between sexes [@Takahashi2021]. This study focused on immune activation and identified a sex-based difference in CD4+ cell levels, consistent with findings from a previous study [@Bothamley2021]. Recent research also indicates that changes in body fat in males can significantly reduce CD8+ cell levels compared to females [@Dhanyalayam2024]. Our study, along with previous research, provides evidence of sex-specific differences in the initiation and dynamic response of the immune system to TB infection. Our study also identified leptin as a bridge between metabolism and the immune system. This suggests its potential as a therapeutic target for regulating immune responses based on specific metabolic conditions [@Naylor2016]. Animal-based preclinical studies have demonstrated its practical significance [@Fantuzzi2000], but further research is needed to assess its clinical applicability in human populations. The extended two sections demonstrate the better performance of the random forest model in predicting leptin levels using body composition indices. Its strong performance is further demonstrated when non-linear relationships exist.
 
 This study has several limitations. First, the small sample size reduced the statistical power of the analysis. Sample loss due to the instability of the deuterium dilution approach in measuring body water further limited the detection of significant associations. Second, non-biological factors such as professional exposure, alcohol use, and smoking status [@Wigger2022] were not controlled, which could have influenced immune responses. Given their higher prevalence among males [@Soh2017], these factors may have confounded the findings. the machine learning component of this study serves primarily as a methodological exercise due to the limited sample size. A substantially larger data set would be required to enable a more robust and convincing comparison between the random forest and regression tree models. However, recruiting a sufficiently large sample of patients experiencing their first episode of TB in high-prevalence regions remains a significant challenge. Despite these limitations, this study provides valuable insights that complement previous research. Future studies should explore the dynamic regulatory role of leptin at different stages of immune responses.
 

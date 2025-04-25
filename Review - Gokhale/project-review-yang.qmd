@@ -1,0 +1,161 @@
+---
+title: Project Review  
+author: Pooja Gokhale
+date: April-23-2025
+format: 
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+---
+
+# Overview
+
+Title of project: Sex-Based Differences in Tuberculosis Immune Response: The Role of Leptin
+
+Name of project author(s): Guozheng Yang
+
+Name of project reviewer: Pooja Gokhale
+
+
+# Instructions
+
+Write your comments and feedback below for each section/component of the project. The goal should be to help the author improve their project. Make comments as constructive and actionable as possible. You can provide both criticism and praise.
+
+For each component, pick one summary statement by deleting the ones that do not apply and keeping only the one that you think most closely summarizes a given component. 
+
+Make sure your final document compiles/renders into a readable, well-formatted html document.
+
+Delete any sections/text of this template that are not part of your final review document. (Including these instructions.)
+
+
+# Specific project content evaluation
+Evaluate the different parts of the project by filling in the sections below.
+
+
+## Background, Context and Motivation
+### Feedback and Comments
+
+The background is well structure, and provides appropriate information. Africa has specifically been mentioned since the data is taken from Uganda, however, the introduction could benefit from further elaboration. Perhaps mention in the aim that the data was taken from Africa, tying it back together with the first paragraph.
+
+'Since women generally have higher body fat storage, their immune systems may receive sufficient energy to support a stronger response to infections compared to men. In diseases like TB that often cause body wasting (7), differences in energy reserves may contribute to variations in immune response between men and women.' - It would be helpful to provide a reference for this statement.
+If this is a hypothesis, and no reference is available, this should be stated as such.
+
+The further paragraphs state that the role of leptin does not have enough evidence. However, there is no evidence provided regarding immune responses in general in women.
+
+### Summary assessment 
+* strong contextualization and motivation
+
+
+## Question description
+
+### Feedback and Comments
+
+The question has been clearly stated. 
+
+### Summary assessment
+* question/hypotheses fully clear
+
+
+## Data description
+### Feedback and Comments
+The data is well described, as well as the source.
+The different measures, and how they are obtained has been clearly described.
+
+### Summary assessment
+* source and overall structure of data well explained
+
+
+## Data wrangling and exploratory analysis
+### Feedback and Comments
+The data cleaning process has not been explained at all in the manuscript. The processing code file shows minor data cleaning.
+Since the data was relatively clean already, minor data cleaning was needed.
+It would be helpful to explain this part either in the supplementary material or in the main manuscript.
+The exploratory analysis is explained well in the manuscript.
+It would be helpful to include this analysis as a separate eda-code file, rather than having all the analysis in the statistical analysis file.
+
+### Summary assessment
+* some weaknesses in wrangling and exploratory component
+
+
+## Appropriateness of Analysis
+
+### Feedback and Comments
+The analysis methods are appropriate.
+However, a multivariable linear regression model could be considered as well as a simple linear regression model.
+
+### Summary assessment
+* strong and reasonable analysis
+
+## Presentation
+### Feedback and Comments
+In general, the figures and tables are publication-quality.
+Table 2 is slightly confusing - it might be better to have separate tables for linear and poisson regression.
+Additionally, consider a more thorough explanation of the 95% CI (for example - what is significant, add p-values).
+
+### Summary assessment
+* results are presented ok, with room for improvement
+
+
+## Discussion/Conclusions
+
+### Feedback and Comments
+The study findings are explained properly.
+The limitations have also been discussed appropriately.
+
+
+### Summary assessment
+* strong, complete and clear discussion
+
+
+## Further comments
+Overall, a very strong project. Some minor changes with writing and presentation of results would help improve clarity.
+
+
+# Overall project content evaluation
+## Structure
+### Feedback and Comments
+
+The project is well structured.
+Files are correctly labeled - with reasonable names.
+A separate file for exploratory data analysis would be helpful.
+All readme files have been updated.
+
+### Summary assessment
+* well structured
+
+## Documentation
+### Feedback and Comments
+Project is generally well documented. However, there are not enough comments to understand the code completely.
+
+ ### Summary assessment
+* decently documented with some gaps
+
+
+## Reproducibility
+
+### Feedback and Comments
+The results are full reproducible. The readme files explain how to run the analysis. No manual edits needed.
+
+
+### Summary assessment
+* fully reproducible without issues
+
+
+## Thoroughness
+
+### Feedback and Comments
+Alternative models were not considered or discussed. The hypothesis was answered, assessing the association between fat, leptin and immune response. However, a multivariable linear regression would have provided more valuable information. For example, would the results change if body water was also considered as a covariate?
+
+### Summary assessment
+* decent level of thoroughness
+
+
+### Further comments
+Consider a multivariable linear regression model, using all available relevant predictors. 
+For example - sex, age, fmi, body water as predictors for leptin.
+
+
+
+
+

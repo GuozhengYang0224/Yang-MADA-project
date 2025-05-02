@@ -76,6 +76,10 @@ At enrollment, basic body indices, including age, sex, height (m), and weight (k
 
 To assess immune activation, flow cytometry was used to measure CD4+ and CD8+ T cell counts in venous blood samples (7 ml of plasma). The percentages of CD4+ and CD8+ cells were calculated by dividing their counts by the total lymphocyte count. Levels of C-reactive protein (CRP, mg/dl), interferon-gamma (INF-gamma, pg/ml), tumor necrosis factor-alpha (TNF-alpha, pg/ml), and interleukin-10 (IL-10, pg/ml) were also measured as indicators of immune response.
 
+## Data cleaning
+
+Due to measurement instability, a small number of participants had total body water (TBW) values recorded as less than 0 or greater than 0.70, which are biologically implausible. As TBW serves as a foundational parameter for calculating other body composition indices, participants with TBW values outside the plausible range (<0 or >0.73) were excluded from downstream analyses to ensure data quality and the validity of derived measures. In addition, percentage-based indices such as body water and body fat were originally recorded in decimal format and were converted to percentage format (e.g., 0.45 to 45%) to enhance interpretability. CD4+ and CD8+ cell counts were rounded to the nearest integer to reflect the typical reporting standard in clinical and immunological research.
+
 ## Statistical analysis
 
 In the descriptive analysis, we compared the distribution of demographic characteristics (e.g., age, height, weight) and body composition indices (e.g., body fat, lean body mass, leptin level) between male and female participants using the median and interquartile range (IQR). Differences in immune responses were visualized with boxplots showing the distributions of available measures, including CD4+ cell counts, CRP levels, and INF-gamma levels. The association between log-transformed leptin levels and body fat, lean body mass, percentage of CD4+ cells, and percentage of CD8+ cells was assessed using scatterplots with Pearson correlation coefficients.
@@ -127,7 +131,7 @@ When fitting linear regression for all participants, leptin level was positively
 
 ```{r}
 #| label: tbl-coef
-#| tbl-cap: "Coefficient estimation (95% CI) from linear regression and Poisson regression."
+#| tbl-cap: "Coefficient estimation (95% CI) from linear regression and Poisson regression. Fat mass index is only included in the linear regression model, while both predictors are included in the Poisson regression model to assess medication effects."
 #| echo: FALSE
 knitr::include_graphics(here("results","tables","table2.png"))
 ```
@@ -136,7 +140,7 @@ Among all participants, FMI had a notable effect on promoting CD4+ cell counts (
 
 ```{r}
 #| label: tbl-ma
-#| tbl-cap: "Mediation analysis with estimated effects and 95% CI."
+#| tbl-cap: "Mediation analysis with estimated effects and 95% CI. For negative direct effect or indirect effect, the percentage of mediated effect cannot be calculated due to model setting."
 #| echo: FALSE
 knitr::include_graphics(here("results","tables","table3.png"))
 ```
@@ -147,14 +151,14 @@ The tuning results indicate that the random forest model achieved optimal perfor
 
 ```{r}
 #| label: fig-rf
-#| fig-cap: "Parameter tuning results of random forest. "
+#| fig-cap: "Parameter tuning results of random forest. Darker square means lower root mean squared error."
 #| echo: FALSE
 knitr::include_graphics(here("results","figures","figure3.png"))
 ```
 
 ```{r}
 #| label: fig-rt
-#| fig-cap: "Parameter tuning results of regression tree. "
+#| fig-cap: "Parameter tuning results of regression tree. Darker square means lower root mean squared error. "
 #| echo: FALSE
 knitr::include_graphics(here("results","figures","figure4.png"))
 ```
@@ -163,7 +167,7 @@ The plots comparing predicted values and observed values further illustrate the 
 
 ```{r}
 #| label: fig-rfrt
-#| fig-cap: "Comparison of random forest and regression tree: predicted values vs. observed values. "
+#| fig-cap: "Comparison of random forest and regression tree: predicted values vs. observed values. The dashed black line on the diagonal denotes the reference where predicted values are equal to observed values. "
 #| echo: FALSE
 knitr::include_graphics(here("results","figures","figure5.png"))
 ```
@@ -174,14 +178,14 @@ The performance of the random forest model on the simulated data set appears to 
 
 ```{r}
 #| label: fig-rfsim
-#| fig-cap: "Parameter tuning results of random forest model using simulated data. "
+#| fig-cap: "Parameter tuning results of random forest model using simulated data. Darker square means lower root mean squared error. "
 #| echo: FALSE
 knitr::include_graphics(here("results","figures","figure6.png"))
 ```
 
 ```{r}
 #| label: fig-rfpredsim
-#| fig-cap: "Fitting results of random forest on simulated data: predicted values vs. observed values. "
+#| fig-cap: "Fitting results of random forest on simulated data: predicted values vs. observed values. The dashed black line on the diagonal denotes the reference where predicted values are equal to observed values. "
 #| echo: FALSE
 knitr::include_graphics(here("results","figures","figure7.png"))
 ```
